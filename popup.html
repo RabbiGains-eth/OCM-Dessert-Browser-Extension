@@ -1,0 +1,112 @@
+<html>
+
+<meta charset="UTF-8">
+
+<style>
+  html {
+    max-height: 170px;
+  }
+
+  body {
+    padding: 20px;
+    max-height: 170px;
+  }
+
+  .toggle_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #toggle_box {
+    display: none;
+  }
+
+  .toggleWrap {
+    width: 65px;
+    height: 30px;
+    padding: 2px;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    position: relative;
+    transition: all 0.4s;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .toggleDot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: grey;
+    position: absolute;
+    transition: all 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toggle_container span {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .toggleSelected .toggleWrap{
+    background-color: lawngreen;
+  }
+
+  .toggleSelected .toggleDot {
+    background-color: white;
+    transform: translateX(35px);
+  }
+
+  .footer {
+    padding-top: 8px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 22px;
+    padding-bottom: 10px;
+  }
+
+  .update-alert {
+    padding-top: 15px;
+    color: red;
+    text-align: center;
+    display: none;
+  }
+
+
+</style>
+
+<body>
+  <div class="title">
+    🍌🍌  !RISE  🍌🍌
+  </div>
+  <div class="toggle_container">
+    <span>OFF</span>
+    <input type="checkbox" id="toggle_box" checked />
+    <div class="toggleWrap">
+      <div class="toggleDot"></div>
+    </div>
+    <span>ON</span>
+  </div>
+  <div class="footer">
+    by <a href="https://twitter.com/RabbiGains" target="_blank">RabbiGains</a>
+  </div>
+  
+  <div class="update-alert">
+    A new update has been released. Download the newest version from <a href="https://github.com/RabbiGains/OCM-Karma-Browser-Extension">GitHub.</a>
+  </div>
+
+</body>
+
+<script src="scripts/popup.js"></script>
+
+</html>

@@ -5,7 +5,7 @@
 
 ## Installation for Google Chrome
 
-- Download the [zip package](https://github.com/RabbiGains/OCM-Karma-Browser-Extension/archive/refs/heads/main.zip) from the Github page
+- Download the [zip package](https://github.com/RabbiGains-eth/OCM-Dessert-Browser-Extension/archive/refs/heads/main.zip) from the Github page
 - Unzip all contents to a single folder
 - Open Google Chrome and go to ***Manage Extension***
 - Set ***Developer Mode*** to ***On***

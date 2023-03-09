@@ -34,12 +34,13 @@ if (toggleObject) {
 }
 
 function checkingUpdateAlert() {
+  const version = 0.1;
   fetch(`https://hook.us1.make.com/fbhg4wlaargqm5haee6wf5t3tn22iz4t`)
     .then(response => response.text())
     .then(res => {
       const updateAlert = document.querySelector('.update-alert');
       if (updateAlert) {
-        if (res.toLowerCase() === 'show') {
+        if (res > version) {
           updateAlert.style.display = 'block';
         } else {
           updateAlert.style.display = 'none';
@@ -47,7 +48,7 @@ function checkingUpdateAlert() {
       }
     })
     .catch(error => {
-      console.log(`An error occurred while checking update-alert displaying`);
+      console.log(`An error occurred while checking for updates.`);
       console.log(error);
     });
 }

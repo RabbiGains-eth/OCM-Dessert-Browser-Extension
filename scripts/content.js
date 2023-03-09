@@ -111,18 +111,18 @@ let allowed = false;
 
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
-    console.log(request);
     if (request.message === "allowed") {
       if (request.selected && window.location.href.indexOf(WEB_URL) > -1) {
         allowed = true;
         insertLinkToNFTProduct();
 
         window.addEventListener("wheel", event => {
-          if (window.location.href.indexOf(WEB_URL) > -1) {
+          if (window.location.href.indexOf(WEB_URL) > -1 && allowed) {
             insertLinkToNFTProduct();
           }
         });
       } else {
+        allowed = false;
         removeAllLinks();
       }
     }

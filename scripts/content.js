@@ -5,7 +5,11 @@ const popsicle = 'https://res.cloudinary.com/dk7vtkmru/image/upload/v1678328731/
 const donutBlack = 'https://res.cloudinary.com/dk7vtkmru/image/upload/v1678328731/donut-black_l0wgay.png';
 const donut = 'https://res.cloudinary.com/dk7vtkmru/image/upload/v1678328731/donut_fa8vyc.png';
 
-const COMMON_LINK = 'https://blur.io/asset/0x86cc280d0bac0bd4ea38ba7d31e895aa20cceb4b';
+const OPENSEA_COMMON_LINK = 'https://opensea.io/assets/ethereum/0x86cc280d0bac0bd4ea38ba7d31e895aa20cceb4b';
+const BLUR_COMMON_LINK = 'https://blur.io/asset/0x86cc280d0bac0bd4ea38ba7d31e895aa20cceb4b';
+
+const BLUR_WEB_URL = 'https://blur.io/collection/onchainmonkey';
+const OPENSEA_WEB_URL = 'https://opensea.io/collection/onchainmonkey';
 
 function checkDonut(tokenID, callback, errorCallback) {
   fetch(`https://ipfs.io/ipfs/${HASH_VALUE}/2${tokenID.toString().padStart(4, '0')}`)
@@ -38,25 +42,25 @@ function checkPopsicle(tokenID, callback, errorCallback) {
 }
 
 function attachAllEvents() {
-  if (window.location.href.indexOf(WEB_URL) > -1) {
+  if (window.location.href.indexOf(BLUR_WEB_URL) > -1) {
     document.querySelector('button div[name="grid"]').addEventListener('click', function (evt) {
       setTimeout(() => {
-        insertLinkToNFTProduct();
+        insertBlurLinkToNFTProduct();
       }, 1000);
     });
     document.querySelector('button div[name="grid-condensed"]').addEventListener('click', function (evt) {
       setTimeout(() => {
-        insertLinkToNFTProduct();
+        insertBlurLinkToNFTProduct();
       }, 1000);
     });
     document.querySelector('button div[name="list-bulleted-spaced"]').addEventListener('click', function (evt) {
       setTimeout(() => {
-        insertLinkToNFTProduct();
+        insertBlurLinkToNFTProduct();
       }, 1000);
     });
     document.querySelector('button div[name="list-bulleted-condensed"]').addEventListener('click', function (evt) {
       setTimeout(() => {
-        insertLinkToNFTProduct();
+        insertBlurLinkToNFTProduct();
       }, 1000);
     });
 
@@ -97,7 +101,7 @@ function attachAllEvents() {
                   divElem.querySelector('.icon-row .popsicle-link').addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    window.open(`${COMMON_LINK}/1${token.toString().padStart(4, '0')}`, '_blank');
+                    window.open(`${BLUR_COMMON_LINK}/1${token.toString().padStart(4, '0')}`, '_blank');
                   });
                 }, function () { divElem.querySelector('.popsicle-icon').src = popsicleBlack });
                 checkDonut(token, function () {
@@ -106,7 +110,7 @@ function attachAllEvents() {
                   divElem.querySelector('.icon-row .donut-link').addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    window.open(`${COMMON_LINK}/2${token.toString().padStart(4, '0')}`, '_blank');
+                    window.open(`${BLUR_COMMON_LINK}/2${token.toString().padStart(4, '0')}`, '_blank');
                   });
                 }, function () { divElem.querySelector('.donut-icon').src = donutBlack });
               }
@@ -156,7 +160,7 @@ function attachAllEvents() {
                   allAssets[i].querySelector('.icon-row .popsicle-link').addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    window.open(`${COMMON_LINK}/1${token.toString().padStart(4, '0')}`, '_blank');
+                    window.open(`${BLUR_COMMON_LINK}/1${token.toString().padStart(4, '0')}`, '_blank');
                   });
                 }, function () { allAssets[i].querySelector('.popsicle-icon').src = popsicleBlack });
                 checkDonut(token, function () {
@@ -165,7 +169,7 @@ function attachAllEvents() {
                   allAssets[i].querySelector('.icon-row .donut-link').addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    window.open(`${COMMON_LINK}/2${token.toString().padStart(4, '0')}`, '_blank');
+                    window.open(`${BLUR_COMMON_LINK}/2${token.toString().padStart(4, '0')}`, '_blank');
                   });
                 }, function () { allAssets[i].querySelector('.donut-icon').src = donutBlack });
               }
@@ -180,11 +184,11 @@ let insertTimeout = null;
 function attachNextCalling() {
   insertTimeout && clearTimeout(insertTimeout);
   insertTimeout = setTimeout(() => {
-    insertLinkToNFTProduct();
+    insertBlurLinkToNFTProduct();
   }, 300 * 1000);
 }
 
-function insertLinkToNFTProduct() {
+function insertBlurLinkToNFTProduct() {
   const isGrid = document.querySelector('button div[name="grid"]').attributes.color.value === 'yellow300';
   const isGridCondensed = document.querySelector('button div[name="grid-condensed"]').attributes.color.value === 'yellow300';
   const isListSpaced = document.querySelector('button div[name="list-bulleted-spaced"]').attributes.color.value === 'yellow300';
@@ -256,7 +260,7 @@ function insertLinkToNFTProduct() {
         allAssets[i].querySelector('.icon-row .popsicle-link').addEventListener('click', function (e) {
           e.preventDefault();
           e.stopPropagation();
-          window.open(`${COMMON_LINK}/1${token.toString().padStart(4, '0')}`, '_blank');
+          window.open(`${BLUR_COMMON_LINK}/1${token.toString().padStart(4, '0')}`, '_blank');
         });
       }, function () { allAssets[i].querySelector('.popsicle-icon').src = popsicleBlack });
       checkDonut(token, function () {
@@ -265,13 +269,71 @@ function insertLinkToNFTProduct() {
         allAssets[i].querySelector('.icon-row .donut-link').addEventListener('click', function (e) {
           e.preventDefault();
           e.stopPropagation();
-          window.open(`${COMMON_LINK}/2${token.toString().padStart(4, '0')}`, '_blank');
+          window.open(`${BLUR_COMMON_LINK}/2${token.toString().padStart(4, '0')}`, '_blank');
         });
       }, function () { allAssets[i].querySelector('.donut-icon').src = donutBlack });
     }
   }
   attachAllEvents();
   attachNextCalling();
+}
+
+function insertOpenseaLinkToNFTProduct() {
+  const allAssets = document.querySelectorAll('.Asset--loaded article');
+
+  for (let i = 0; i < allAssets.length; i++) {
+    const asset = allAssets[i];
+    const link = asset.querySelector('a').href;
+    const splitedLink = link.split('/');
+    const token = splitedLink[splitedLink.length - 1];
+    const imageElem = asset.querySelector('div:nth-of-type(1)');
+    const elem = asset.querySelector('div:nth-of-type(3)');
+    const isExist = elem.querySelector('.link-text');
+    const isIconExist = imageElem.querySelector('.icon-row');
+    if (elem && !isExist) {
+      if (!isIconExist) {
+        const iconRow = document.createElement("div");
+        iconRow.className = 'icon-row';
+        iconRow.innerHTML = `
+          <a class="popsicle-link">
+            <img src="${popsicleBlack}" class="popsicle-icon status-icon" />
+          </a>
+          <a class="donut-link">
+            <img src="${donutBlack}" class="donut-icon status-icon" />
+          </a>
+        `;
+        imageElem.insertBefore(iconRow, imageElem.firstChild)
+        imageElem.querySelector('.icon-row .popsicle-link').addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          // window.open(`${COMMON_LINK}/1${token.toString().padStart(4, '0')}`, '_blank');
+        });
+        imageElem.querySelector('.icon-row .donut-link').addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          // window.open(`${COMMON_LINK}/2${token.toString().padStart(4, '0')}`, '_blank');
+        });
+        checkPopsicle(token, function () {
+          allAssets[i].querySelector('.popsicle-icon').src = popsicle;
+          allAssets[i].querySelector('.popsicle-icon').style.cursor = 'pointer';
+          allAssets[i].querySelector('.icon-row .popsicle-link').addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(`${OPENSEA_COMMON_LINK}/1${token.toString().padStart(4, '0')}`, '_blank');
+          });
+        }, function () { allAssets[i].querySelector('.popsicle-icon').src = popsicleBlack });
+        checkDonut(token, function () {
+          allAssets[i].querySelector('.donut-icon').src = donut;
+          allAssets[i].querySelector('.donut-icon').style.cursor = 'pointer';
+          allAssets[i].querySelector('.icon-row .donut-link').addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(`${OPENSEA_COMMON_LINK}/2${token.toString().padStart(4, '0')}`, '_blank');
+          });
+        }, function () { allAssets[i].querySelector('.donut-icon').src = donutBlack });
+      }
+    }
+  }
 }
 
 function removeAllLinks() {
@@ -285,22 +347,32 @@ function removeAllLinks() {
   }
 }
 
-const WEB_URL = 'https://blur.io/collection/onchainmonkey';
 let allowed = false;
+let site_type = -1;
 let wheelTimeout = null;
 
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.message === "allowed") {
-      if (request.selected && window.location.href.indexOf(WEB_URL) > -1) {
+      site_type = request.type;
+      if (request.selected) {
         allowed = true;
-        insertLinkToNFTProduct();
+        if (window.location.href.indexOf(OPENSEA_WEB_URL) > -1) {
+          insertOpenseaLinkToNFTProduct();
+        }
+        
+        if (window.location.href.indexOf(BLUR_WEB_URL) > -1) {
+          insertBlurLinkToNFTProduct();
+        }
 
         window.addEventListener("wheel", event => {
           wheelTimeout && clearTimeout(wheelTimeout);
           wheelTimeout = setTimeout(() => {
-            if (window.location.href.indexOf(WEB_URL) > -1 && allowed) {
-              insertLinkToNFTProduct();
+            if (window.location.href.indexOf(OPENSEA_WEB_URL) > -1 && allowed) {
+              insertOpenseaLinkToNFTProduct();
+            }
+            if (window.location.href.indexOf(BLUR_WEB_URL) > -1 && allowed) {
+              insertBlurLinkToNFTProduct();
             }
           }, 100);
         });
@@ -314,7 +386,7 @@ chrome.runtime.onMessage.addListener(
 
 let previousUrl = '';
 const observer = new MutationObserver(function (mutations) {
-  if (window.location.href.indexOf(WEB_URL) > -1) {
+  if (window.location.href.indexOf(BLUR_WEB_URL) > -1 || window.location.href.indexOf(OPENSEA_WEB_URL) > -1) {
     if (location.href !== previousUrl) {
       previousUrl = location.href;
       console.log(`URL changed to ${location.href}`);

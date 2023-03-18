@@ -34,7 +34,7 @@ if (toggleObject) {
 }
 
 function checkingUpdateAlert() {
-  const version = 0.1;
+  const version = 0.2;
   fetch(`https://hook.us1.make.com/fbhg4wlaargqm5haee6wf5t3tn22iz4t`)
     .then(response => response.text())
     .then(res => {

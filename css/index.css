@@ -22,8 +22,22 @@
   padding: 15px;
 }
 
+.icon-row-grid{
+  padding-top: 70px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.icon-row-list{
+  position: relative!important;
+}
+
 .status-icon{
   width: 50px;
   height: 50px;
   pointer-events: auto;
+}
+
+.icon-row-list .status-icon{
+  width: 20px!important;
+  height: 20px!important;
 }

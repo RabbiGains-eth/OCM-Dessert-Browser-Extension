@@ -1,7 +1,7 @@
 {
-  "name": "OCM Dessert for OpenSea",
-  "description": "UI upgrade for OpenSea which overlays OCM Dessert icons indicating whether a genesis OCM has consumed a Popsicle or Donut.",
-  "version": "0.1",
+  "name": "OCM Dessert Indicator Tool",
+  "description": "UI upgrade for Blur & OpenSea, which overlays OCM Dessert icons indicating whether a genesis OCM has consumed a Popsicle or Donut.",
+  "version": "0.2",
   "author": "@RabbiGains",
   "manifest_version": 3,
   "icons": {
